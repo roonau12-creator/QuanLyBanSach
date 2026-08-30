@@ -29,4 +29,9 @@ pipeline {
         }
     }
 }
-
+stage('Test') {
+    steps {
+        echo 'Running tests...'
+        sh 'dotnet test BookShop.Tests/BookShop.Tests.csproj'
+    }
+}
