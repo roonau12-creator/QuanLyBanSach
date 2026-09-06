@@ -1,0 +1,9 @@
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.csproj.AssemblyReference.cache
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.GeneratedMSBuildEditorConfig.editorconfig
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.AssemblyInfoInputs.cache
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.AssemblyInfo.cs
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.csproj.CoreCompileInputs.cache
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.sourcelink.json
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.dll
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/refint/BookShop.Models.dll
+/home/roonau/Downloads/BookShop/BookShop.Models/obj/Release/net10.0/BookShop.Models.pdb
