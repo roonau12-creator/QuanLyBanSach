@@ -42,7 +42,7 @@ public class HomeController : Controller
     [Authorize]
     public async Task<IActionResult> Details(ShoppingCart shoppingCart)
     {
-        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var claimsIdentity = (ClaimsIdentity)User.Identity!;
         var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
         {

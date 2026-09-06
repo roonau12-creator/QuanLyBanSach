@@ -26,8 +26,8 @@ public class CartController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        var claimsIdentity = (ClaimsIdentity)User.Identity;
-        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+        var claimsIdentity = (ClaimsIdentity)User.Identity!;
+        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
         {
             return Unauthorized();
@@ -42,7 +42,7 @@ public class CartController : Controller
         shoppingCartVM.OrderHeader.ApplicationUser = user;
         shoppingCartVM.OrderHeader.ApplicationUserId = userId;
         shoppingCartVM.OrderHeader.Name = user.Name;
-        shoppingCartVM.OrderHeader.PhoneNumber = user.PhoneNumber;
+        shoppingCartVM.OrderHeader.PhoneNumber = user.PhoneNumber ?? string.Empty;
         shoppingCartVM.OrderHeader.StreetAddress = user.StreetAddress;
         shoppingCartVM.OrderHeader.City = user.City;
         shoppingCartVM.OrderHeader.State = user.State;
@@ -57,8 +57,8 @@ public class CartController : Controller
     [ActionName("Index")]
     public async Task<IActionResult> IndexPost(ShoppingCartVM  shoppingCartVM)
     {
-        var claimsIdentity = (ClaimsIdentity)User.Identity;
-        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+        var claimsIdentity = (ClaimsIdentity)User.Identity!;
+        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userId))
         {
             return Unauthorized();
