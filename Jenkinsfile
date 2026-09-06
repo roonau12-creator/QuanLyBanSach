@@ -30,6 +30,20 @@ pipeline {
                 sh 'dotnet test BookShop.Tests/BookShop.Tests.csproj --no-restore'
             }
         }
+        stage('Check Workspace') {
+    steps {
+        sh '''
+            echo "===== WORKSPACE ====="
+            pwd
+
+            echo "===== FILES ====="
+            ls -la
+
+            echo "===== CSPROJ ====="
+            find . -name "*.csproj" -print
+        '''
+    }
+}
     }
 
     post {

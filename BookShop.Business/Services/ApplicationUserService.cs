@@ -18,7 +18,7 @@ namespace BookShop.Business.Services
         }
         public async Task<ApplicationUser> GetUserByIdAsync(string userId)
         {
-            return await _context.applicationUsers.FirstOrDefaultAsync(u => u.Id == userId);
+            return (await _context.applicationUsers.FirstOrDefaultAsync(u => u.Id == userId))!;
         }
     }
 }

@@ -7,10 +7,10 @@ namespace BookShop.Models;
 public class OrderHeader
 {
     public int Id { get; set; }
-    public string ApplicationUserId { get; set; }
+    public string ApplicationUserId { get; set; } = string.Empty;
     [ForeignKey("ApplicationUserId")]
     [ValidateNever]
-    public ApplicationUser ApplicationUser { get; set; }
+    public ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
     public DateTime OrderDate { get; set; }
     public DateTime ShoppingDate { get; set; }
     public double OrderTotal { get; set; }
@@ -20,19 +20,19 @@ public class OrderHeader
     public string? SessiongId { get; set; }
     public string? PaymentIntentId { get; set; }
     [Required]
-    public string PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; } = string.Empty;
     [Required]
-    public string StreetAddress { get; set; }
+    public string StreetAddress { get; set; } = string.Empty;
     [Required]
-    public string City { get; set; }
+    public string City { get; set; } = string.Empty;
     [Required]
-    public string State { get; set; }
+    public string State { get; set; } = string.Empty;
     [Required]
-    public string PostalCode { get; set; }
+    public string PostalCode { get; set; } = string.Empty;
     [Required]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     [ValidateNever]
-    public IEnumerable<OrderDetails>OrderDetails { get; set; }
+    public IEnumerable<OrderDetails> OrderDetails { get; set; } = new List<OrderDetails>();
 
 
 }

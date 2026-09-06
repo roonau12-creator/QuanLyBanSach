@@ -32,7 +32,7 @@ public class OrderService:IOrderService
         return await query.FirstOrDefaultAsync(o => o.Id == id);
     }
 
-    public async Task<IEnumerable<OrderHeader>> GetAllOrdersAsync(string userId = null, string? status = null, bool includeUser = false,
+    public async Task<IEnumerable<OrderHeader>> GetAllOrdersAsync(string? userId = null, string? status = null, bool includeUser = false,
         bool includeDetails = false)
     {
         var query = _db.orderHeaders.AsQueryable();
