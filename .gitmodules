@@ -1,0 +1,4 @@
+[submodule "BookShopmvc"]
+	path = BookShopmvc
+	url = https://github.com/roonau12-creator/QuanLyBanSach.git
+	branch = bookshopmvc
