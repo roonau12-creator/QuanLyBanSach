@@ -19,8 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
- 
-               echo 'Building BookShop...'
+                echo 'Building BookShop...'
                 sh 'dotnet build BookShopmvc/BookShopmvc.csproj --no-restore'
             }
         }
@@ -28,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'dotnet test --no-build'
+                sh 'dotnet test BookShop.Tests/BookShop.Tests.csproj --no-restore'
             }
         }
     }
