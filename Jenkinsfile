@@ -43,6 +43,15 @@ pipeline {
             find . -name "*.csproj" -print
         '''
     }
+    stage('Check Workspace') {
+    steps {
+        sh '''
+            pwd
+            echo "=========="
+            find . -name "*.csproj" -print
+        '''
+    }
+}
 }
     }
 
