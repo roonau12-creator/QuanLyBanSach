@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -6,32 +5,55 @@ pipeline {
 
         stage('Checkout') {
             steps {
+                echo 'Checkout source code from GitHub'
                 checkout scm
+            }
+        }
+
+        stage('Check Workspace') {
+            steps {
+                sh '''
+                    echo "===== CURRENT DIRECTORY ====="
+                    pwd
+
+                    echo "===== ROOT FILES ====="
+                    ls -la
+
+                    echo "===== ALL PROJECT FILES ====="
+                    find . -name "*.csproj" -print
+                '''
             }
         }
 
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                echo 'Restoring dependencies...'
+                sh 'dotnet restore BookShopmvc/BookShopmvc.csproj'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'dotnet build --no-restore'
+                echo 'Building BookShop...'
+                sh 'dotnet build BookShopmvc/BookShopmvc.csproj --no-restore'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'dotnet test --no-build'
+                echo 'Running tests...'
+                sh 'dotnet test BookShop.Tests/BookShop.Tests.csproj --no-restore'
             }
         }
     }
-}
-stage('Test') {
-    steps {
-        echo 'Running tests...'
-        sh 'dotnet test BookShop.Tests/BookShop.Tests.csproj'
+
+    post {
+        success {
+            echo 'CI Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'CI Pipeline failed!'
+        }
     }
 }
